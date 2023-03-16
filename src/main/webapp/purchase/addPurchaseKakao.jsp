@@ -27,19 +27,19 @@
 <table border=1>
 	<tr>
 		<td>물품번호</td>
-		<td>${info.partner_user_id}</td>
+		<td>${info.partner_order_id}</td>
 		<td></td>
 	</tr> 
 	<tr>
 		<td>구매자아이디</td>
-		<td>${purcVO.buyer.userId }</td>
+		<td>${info.partner_user_id}</td>
 		<td></td>
 	</tr> 
 	<tr>
 		<td>구매방법</td>
 		<td>
 		
-			${purcVO.paymentOption =='1' ? '현금구매' : '신용구매' }
+			카카오페이
 		
 		</td>
 		<td></td>

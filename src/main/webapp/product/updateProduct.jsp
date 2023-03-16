@@ -56,7 +56,7 @@ function fncAddProduct(){
 		return;
 	}
 		
-	$("form").attr("method" , "POST").attr("action" , "/product/updateProduct").submit();
+	$("form").attr("method" , "POST").attr("action" , "/product/updateProduct?prodNo=${prod.prodNo}").submit();
 }
 
 $(function(){
@@ -92,9 +92,9 @@ $(function(){
 	       <h5 class="text-muted">상품 정보를 <strong class="text-danger">수정</strong>합니다.</h5>
 	    </div>
 	    
-	    <form class="form-horizontal">
+	    <form class="form-horizontal" enctype="multipart/form-data">
 	    
-	    
+	    <input type="hidden" value="${prod.prodNo }">
 	    
 	    <div class="form-group">
 	    <label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">상 품 명</label>
@@ -128,7 +128,7 @@ $(function(){
 	    <div class="form-group">
 		<label for="file" class="col-sm-offset-1 col-sm-3 control-label">상품이미지</label>
 		<div class="col-sm-4">
-		      <input type="file" class="form-control" id="customFile" name="file" >
+		      <input type="file" class="form-control" id="file" name="file"  value="${prod.fileName }">
 		    </div>
 		</div>
 		

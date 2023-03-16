@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,6 +47,14 @@ public class ProductRestController {
 		Map<String, Object> map = productService.getProductList(search);
 		
 		return map;
+	}
+	
+	@RequestMapping( value="json/autoComplete")
+	public @ResponseBody Map<String, Object> autocomplete(@RequestParam Map<String, Object> paramMap) throws Exception{
+		
+		
+		
+		return paramMap;
 	}
 	
 //	@RequestMapping( value="json/listProductAuto" )

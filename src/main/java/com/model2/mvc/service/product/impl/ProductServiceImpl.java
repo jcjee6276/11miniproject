@@ -78,4 +78,14 @@ public class ProductServiceImpl implements ProductService{
 	}
 	
 	
+//	public Map<String, Object>autocomplete(Search search) throws Exception{
+//		List<Product> list = productDao.autocompleteMapper(search);
+//		
+//		productDao.autocompleteMapper(search);
+//		Map<String, Object> map = new HashMap<String, Object>();
+//		map.put("list", list);
+//		return map; //autoComMapper.autocomplete(paramMap)
+//	}
 }
+	
+

@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.model2.mvc.service.domain.KakaoUser;
+import com.model2.mvc.service.domain.User;
 import com.model2.mvc.service.kakao.KakaoDao;
 
 @Service
@@ -149,8 +149,9 @@ public class KakaoService {
 			
 			
 			if(kakaoDao.checkDuplication(userId)==false) {
-				KakaoUser user = new KakaoUser();
+				User user = new User();
 				user.setUserId(userId);
+				user.setPassword(userId);
 				user.setUserName(nickname);
 				user.setEmail(email);
 				kakaoDao.addUser(user);
@@ -163,8 +164,8 @@ public class KakaoService {
 		return userInfo;
 	}
 	
-	public KakaoUser getKakaoUser(String userId) throws Exception {
-		KakaoUser user = kakaoDao.getUser(userId);
+	public User getKakaoUser(String userId) throws Exception {
+		User user = kakaoDao.getUser(userId);
 		return user;
 	}
 	

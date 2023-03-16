@@ -91,7 +91,7 @@ function fncAddProduct(){
 		<h1 class="bg-primary text-center">상 품 등 록</h1>
 		
 		<!-- form Start /////////////////////////////////////-->
-		<form class="form-horizontal">
+		<form class="form-horizontal" enctype="multipart/form-data">
 		
 		  <div class="form-group">
 		<label for="prodName" class="col-sm-offset-1 col-sm-3 control-label">상품명</label>

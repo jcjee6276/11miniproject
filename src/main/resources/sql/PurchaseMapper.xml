@@ -62,12 +62,12 @@
 	 * FROM ( SELECT inner_table.* , ROWNUM AS row_seq 
 	 FROM ( SELECT * FROM transaction ORDER BY TRAN_NO ) inner_table 
 	 WHERE ROWNUM &lt;= #{endRowNum} )
-	 WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
+	 WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} AND buyer_id = #{ buyer }
 	</select>
 	
 	<select  id="getTotalCount"  parameterType="search"	 resultType="int">
 	SELECT COUNT(*)
-	FROM ( SELECT * from transaction
+	FROM ( SELECT * from transaction where buyer_id = #{ buyer }
 	) countTable
 	
 	</select>

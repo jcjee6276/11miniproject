@@ -61,7 +61,7 @@ $(function() {
 	
 	<c:forEach var="i" begin="0" end="${list.size()-1}">
 	$(  "#${i+1}").on("click", function() {
-		self.location ="/product/updateProduct?prodNo=${list.get(i).prodNo}"
+		self.location ="/product/updateProduct?prodNo=${list.get(i).prodNo}";
 	});
 	</c:forEach>
 	$( "td:nth-child(2)" ).css("color" , "red");
@@ -70,35 +70,9 @@ $(function() {
 	$(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
 });
 
-	$(function(){
-		let index = 0;
-		$(window).scroll(function(){
-			let $window = $(this);
-			let scrollTop = $window.scrollTop();
-			let windowHeight = $window.height();
-			let documentHeight = $(document).height();
-			
-			if( scrollTop + windowHeight +1 >= documentHeight ){
-				index++;
-				setTimeout(fetchlist,200);
-			}
-			
-		});
-	});
 	
-	function fetchlist(){
-		$.ajax({
-			type: "post",
-			url: "/product/json/listProduct",
-			success : function(data) {
-				for(var i=0; i<data.list.length; i++){
-					let dat = data.list[i];
-					console.log(dat);
-					$(body).append();
-				}
-			} 
-		})
-	}
+	
+	
 
 </script>
 </head>
@@ -129,8 +103,8 @@ $(function() {
 			    <div class="form-group">
 				    <select class="form-control" name="searchCondition" >
 				    <option value="0"${search.searchCondition ==0 ? "selected" : "" }>상품번호</option>
-				<option value="1"${search.searchCondition ==1 ? "selected" : "" }>상품명</option>
-				<option value="2"${search.searchCondition ==2 ? "selected" : "" }>상품가격</option>
+					<option value="1"${search.searchCondition ==1 ? "selected" : "" }>상품명</option>
+					<option value="2"${search.searchCondition ==2 ? "selected" : "" }>상품가격</option>
 				    </select>
 				   </div>
 				   

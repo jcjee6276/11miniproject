@@ -50,6 +50,8 @@ Product vo = (Product)request.getAttribute("vo");
 	
 	<div class="container">
 	
+	
+	
 		<div class="page-header">
 	       <h3 class=" text-info">상품정보조회</h3>
 	       <h5 class="text-muted">상품을 <strong class="text-danger">구매</strong>하시겠습니까?</h5>

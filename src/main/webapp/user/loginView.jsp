@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-	
+	<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<!--  ///////////////////////// CSS ////////////////////////// -->
 	<style>
     	 body >  div.container{ 
@@ -35,7 +35,7 @@
 			$("#userId").focus();
 			
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$("button").on("click" , function() {
+			$("button.btn.btn-primary").on("click" , function() {
 				var id=$("input:text").val();
 				var pw=$("input:password").val();
 				
@@ -54,6 +54,14 @@
 				$("form").attr("method","POST").attr("action","/user/login").attr("target","_parent").submit();
 			});
 		});	
+		
+		 /* $(function (){
+			$("#btn").on("click", function() {
+				//$(location).attr("href","https://kauth.kakao.com/oauth/authorize?client_id=04012ee167a54fddf374766087a27fea&scope=profile_nickname,profile_image,account_email&redirect_uri=http://127.0.0.1:8080/user/kakaoLogin&response_type=code").submit();
+				window.open('https://kauth.kakao.com/oauth/authorize?client_id=04012ee167a54fddf374766087a27fea&scope=profile_nickname,profile_image,account_email&redirect_uri=http://127.0.0.1:8080/user/kakaoLogin&response_type=code','_blank','toolbar=no,location=no,status=no,menubar=no, scrollbars=auto,resizable=no,directories=no,width=400,height=400, top=10,left=10');
+			});
+		});  */
+		
 		
 		
 		//============= 회원원가입화면이동 =============
@@ -114,6 +122,7 @@
 					    <div class="col-sm-offset-4 col-sm-6 text-center">
 					      <button type="button" class="btn btn-primary"  >로 &nbsp;그 &nbsp;인</button>
 					      <a class="btn btn-primary btn" href="#" role="button">회 &nbsp;원 &nbsp;가 &nbsp;입</a>
+					      <a href="https://kauth.kakao.com/oauth/authorize?client_id=04012ee167a54fddf374766087a27fea&scope=profile_nickname,profile_image,account_email&redirect_uri=http://127.0.0.1:8080/user/kakaoLogin&response_type=code"><img class="btn-img" src="/images/kakao_login_medium_narrow.png"></a>
 					    </div>
 					  </div>
 			

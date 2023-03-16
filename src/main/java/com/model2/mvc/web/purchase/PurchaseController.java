@@ -86,13 +86,14 @@ public class PurchaseController {
 	}
 	
 	@RequestMapping(value="listPurchase")
-	public ModelAndView listPurchase(@ModelAttribute("search") Search search) throws Exception {
+	public ModelAndView listPurchase(@ModelAttribute("search") Search search,HttpSession session,User user) throws Exception {
 		System.out.println("/listPurchase.do");
 		if(search.getCurrentPage()==0) {
 			search.setCurrentPage(1);
 		}
+		user = (User)session.getAttribute("user");
 		search.setPageSize(pageSize);
-		
+		search.setBuyer(user.getUserId());
 		Map<String, Object> map = purchaseService.getPurchaseList(search);
 		
 		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
@@ -126,6 +127,8 @@ public class PurchaseController {
 	public ModelAndView updatePurchase(@RequestParam("tranNo") int tranNo,User user, Purchase purchase, HttpSession session) throws Exception{
 		//user = (User)session.getAttribute("user");
 		//purchase.setBuyer(user);
+		
+		System.out.println("tranNo"+tranNo);
 		purchase = purchaseService.getPurchase(purchase.getTranNo());
 
 		ModelAndView modelAndView = new ModelAndView();

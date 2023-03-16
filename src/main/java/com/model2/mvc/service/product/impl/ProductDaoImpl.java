@@ -53,4 +53,8 @@ public class ProductDaoImpl implements ProductDao{
 	public void updateProduct(Product product) throws Exception {
 		sqlSession.update("ProductMapper.updateProduct", product);
 	}
+	
+//	public List<Product> autocompleteMapper(Search search) throws Exception {
+//		return sqlSession.selectList("ProductMapper.autocomplete", search);
+//	}
 }

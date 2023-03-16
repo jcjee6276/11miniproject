@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
-import com.model2.mvc.service.domain.KakaoUser;
 import com.model2.mvc.service.domain.User;
 import com.model2.mvc.service.user.UserService;
 import com.model2.mvc.service.user.impl.KakaoService;
@@ -182,7 +181,7 @@ public class UserController {
 	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, HttpSession session) throws Exception {
 		System.out.println("#########" + code);
         
-		// 위에서 만든 코드 아래에 코드 추가
+		
 		String access_Token = ks.getAccessToken(code);
 		System.out.println("###access_Token#### : " + access_Token);
 		
@@ -191,7 +190,7 @@ public class UserController {
 		System.out.println("###nickname#### : " + userInfo.get("nickname"));
 		System.out.println("###email#### : " + userInfo.get("email"));
         
-		KakaoUser dbUser=ks.getKakaoUser((String)userInfo.get("id"));
+		User dbUser=ks.getKakaoUser((String)userInfo.get("id"));
 		System.out.println("user확인"+dbUser);
 		
 		session.setAttribute("user", dbUser);

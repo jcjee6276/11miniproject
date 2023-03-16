@@ -59,7 +59,7 @@ public class ProductController {
 	public String addProduct(HttpServletRequest request,@ModelAttribute("product") Product product, Model model,@RequestParam("file") MultipartFile file) throws Exception {
 		
 		System.out.println("/addProduct.do");
-		String path = "C:\\workspace\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\";
+		String path = "C:\\Users\\bitcamp\\git\\11miniproject\\src\\main\\webapp\\images\\";
 		product.setManuDate(product.getManuDate().replaceAll("-", ""));
 		
 		String root = path + "NewUploadFiles";
@@ -150,7 +150,7 @@ public class ProductController {
 	@RequestMapping(value="updateProduct", method=RequestMethod.POST)
 	public String updateProduct(@ModelAttribute("product") Product product, Model model, @RequestParam("file") MultipartFile file) throws Exception{
 		
-		String path = "C:\\workspace\\09.Model2MVCShop(jQuery)\\src\\main\\webapp\\images\\";
+		String path = "C:\\Users\\bitcamp\\git\\11miniproject\\src\\main\\webapp\\images\\";
 		product.setManuDate(product.getManuDate().replaceAll("-", ""));
 		String root = path + "NewUploadFiles";
 		

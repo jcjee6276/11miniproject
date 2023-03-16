@@ -28,14 +28,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-<link rel="stylesheet" href="/css/admin.css" type="text/css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 
 <link href="/css/animate.min.css" rel="stylesheet">
    <link href="/css/bootstrap-dropdownhover.min.css" rel="stylesheet">
     <!-- Bootstrap Dropdown Hover JS -->
    <script src="/javascript/bootstrap-dropdownhover.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+<link rel="stylesheet" href="/css/admin.css" type="text/css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
    <style>
@@ -46,11 +47,11 @@
 <script type="text/javascript">
 
 function fncGetProductList(currentPage){
-	$("#currentPage").val(currentPage)
+	$("#currentPage").val(currentPage);
 	$("form").attr("method", "POST").attr("action", "/product/listProduct?menu=search").submit();
 	}
 $(function() {
-	$( "td.ct_btn01:contains('°Ë»ö')").on("click", function(){
+	$( "button.btn.btn-default").on("click", function(){
 		fncGetProductList(${search.currentPage });
 	});
 	
@@ -68,6 +69,7 @@ $(function() {
 
 	$(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
 });
+
 
 	
 
@@ -115,7 +117,7 @@ $(function() {
 		    </div>
 				<br/>
 		</div>
-		<br/>
+		
 		<table class="table table-hover table-striped" >
 
 			<thead>
@@ -134,7 +136,7 @@ $(function() {
 	<c:forEach var="prod" items="${list }">
 	<c:set var="i" value="${i+1 }"/>
 	<tr class="ct_list_pop">
-		<div> 
+		 
 		<td align="center">${i }</td>
 		<td></td>
 		
@@ -168,9 +170,7 @@ $(function() {
 		</c:when>
 		</c:choose>
 	</tr>
-	<tr class="ct_list_pop2">
-		<td id="${prod.prodNo }"  colspan="11" bgcolor="D6D7D6" height="1"></td>
-	</tr>
+	
 </c:forEach>
 </c:if>	
 
@@ -215,11 +215,7 @@ $(function() {
 		</c:when>
 		</c:choose>
 	</tr>
-	<tr class="ct_list_pop2">
-		<td id="${prod.prodNo }" colspan="11" bgcolor="D6D7D6" height="1">		
-		</td>
 	
-			</tr>
 		</c:forEach>
 		</c:if>	
         </tbody>

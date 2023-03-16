@@ -56,9 +56,9 @@
 	  	FROM (	SELECT inner_table.* , ROWNUM AS row_seq
 	  	FROM(	select p.prod_no, p.prod_name, p.price, p.REG_DATE , t.TRAN_STATUS_CODE 
 							from product p, transaction t where p.prod_no=t.prod_no(+) 
-											<if test="searchCondition != null">
+									<if test="searchCondition != null">
 										<if test="searchCondition == 0 and searchKeyword !='' ">
-								 AND prod_NO LIKE '%${searchKeyword}%'
+								 AND prod_No LIKE '%${searchKeyword}%'
 										</if>
 										<if test="searchCondition == 1 and searchKeyword !='' ">
 								AND prod_name LIKE '%${searchKeyword}%' 
@@ -69,7 +69,10 @@
 		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
 	 </select>
 	 
-	<select  id="getProductListAuto"  parameterType="search"	resultMap="productSelectMap">
+	
+	 
+	 
+	<select  id="getProductListAuto"  parameterType="search" resultMap="productSelectMap">
 	  	SELECT *
 	  	FROM (select p.prod_no, p.prod_name, p.price, p.REG_DATE , t.TRAN_STATUS_CODE 
 							from product p, transaction t where p.prod_no=t.prod_no(+) ORDER BY prod_no ) inner_table

@@ -21,4 +21,6 @@ public void addProduct(Product product) throws Exception;
 	public int getTotalCount(Search search) throws Exception;
 	
 	public void updateProduct(Product product) throws Exception;
+	
+//	List<Product>autocompleteMapper(Search search) throws Exception;
 }

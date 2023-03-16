@@ -74,7 +74,7 @@
 	                         <li><a href="#" id="productSlist">상 품 검 색</a></li>
 	                         
 	                         <c:if test="${sessionScope.user.role == 'user'}">
-	                           <li><a href="#">구매이력조회</a></li>
+	                           <li><a href="#" id="purchaseList">구매이력조회</a></li>
 	                         </c:if>
 	                         
 	                         <li><a href="#">최근본상품</a></li>
@@ -139,6 +139,12 @@
 		$(function () {
 			$( "#productSlist" ).on("click", function() {
 				$(self.location).attr("href", "/product/listProduct?menu=search");
+			}); 
+		});
+		
+		$(function () {
+			$( "#purchaseList" ).on("click", function() {
+				$(self.location).attr("href", "/purchase/listPurchase");
 			}); 
 		});
 		

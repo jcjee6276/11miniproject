@@ -18,4 +18,6 @@ public interface ProductService {
 	public Map<String, Object> getProductListAuto(Search search) throws Exception;
 	
 	public void updateProduct(Product product) throws Exception;
+	
+//	public Map<String, Object>autocomplete(Search search) throws Exception;
 }

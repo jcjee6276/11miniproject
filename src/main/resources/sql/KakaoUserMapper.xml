@@ -7,7 +7,7 @@
 <mapper namespace="KakaoUserMapper">
  	
  	
-	<resultMap id="userSelectMap" type="kakaouser">
+	<resultMap id="userSelectMap" type="user">
 		<result property="userId" 			column="user_id" 			jdbcType="VARCHAR"/>
 		<result property="userName"	column="user_name" 		jdbcType="VARCHAR" />
 		<result property="password" 	column="password" 		jdbcType="VARCHAR" />
@@ -20,17 +20,17 @@
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
-	<insert 	id="addUser"		parameterType="kakaouser" >
+	<insert 	id="addUser"		parameterType="user" >
 	 	INSERT
-		INTO kakao_users( user_id , user_name , role , email ) 
-		VALUES	 (	#{userId} , #{userName}  , 'user' , #{email:VARCHAR} )
+		INTO users( user_id , password, user_name , role , email ) 
+		VALUES	 (	#{userId} , #{userId} ,#{userName}  , 'user' , #{email:VARCHAR} )
 	 </insert>
 	 
 	 <!-- SQL : SELECT ONE -->
 	 <select 	id="getUser"	parameterType="string"	resultMap="userSelectMap">
 		SELECT
 		user_id , user_name , email 	
-		FROM kakao_users 
+		FROM users 
 		WHERE user_id = #{value}
 	 </select>
 	 

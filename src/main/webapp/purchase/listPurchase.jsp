@@ -28,11 +28,11 @@
 				
 		});
 		
-		<c:forEach var="i" begin="0" end="${list.size()-1}">
-		$( "#${i+1}").on("click", function (){
-			self.location = "/purchase/getPurchase?tranNo=${list[i].tranNo}"
+		 <c:forEach var="i" begin="0" end="${list.size()-1}">
+		$( "#get").on("click", function (){
+			self.location = "/purchase/getPurchase?tranNo=${list.get(i).tranNo}";
 		});
-		</c:forEach>
+		</c:forEach> 
 	});
 	
 	
@@ -89,7 +89,8 @@
 	<c:forEach var="pur" items="${list }">
 	<c:set var="i" value="${ i+1 }" />
 	<tr class="ct_list_pop">
-		<td align="center" id="${ i }">
+		<td align="center" name="get" id="get">
+		<input type="hidden" value=" ${pur.tranNo }">
 			<c:out value="${ i}"/>
 		</td> 
 		<td></td>
